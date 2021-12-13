@@ -1,0 +1,23 @@
+{
+  "name": "youtuberdownloader",
+  "version": "1.0.0",
+  "description": "youtube downloader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elianarism@gmail.com",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "video-converter": "^1.0.0",
+    "youtube-mp3-downloader": "^0.7.9",
+    "ytdl-core": "^4.9.1"
+  }
+}
