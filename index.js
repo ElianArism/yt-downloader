@@ -1,18 +1,16 @@
 const express = require("express")
 const cors = require("cors")
+const dotenv = require("dotenv")
 const downloaderRoutes = require("./src/routes/downloader.routes.js")
 
-const dotenv = require("dotenv")
 dotenv.config()
-
 const app = express()
 const port = process.env.PORT || 3000
 
 app.use(cors())
 app.use(express.json())
-
 app.use("/", downloaderRoutes)
 
 app.listen(port, () => {
-  console.log("Server up!")
+  console.log(`Server up on port: ${port}!`)
 })

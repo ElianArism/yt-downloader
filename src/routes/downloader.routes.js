@@ -1,22 +1,20 @@
 const { Router } = require("express")
-
 const {
-  downloadVideo,
-  downloadAudio,
-  takeFile,
+  takeAudio,
+  takeVideo,
+  getFileToDownload,
   getFileInformation,
 } = require("../controllers/downloader.controller")
-
 const { validateBody } = require("../middlewares/validate-body.middleware")
 
 const downloaderRoutes = Router()
 // HEAD Routes
 downloaderRoutes.head("/server")
 // POST Routes
-downloaderRoutes.post("/take-file", validateBody, takeFile)
+downloaderRoutes.post("/take-audio", validateBody, takeAudio)
+downloaderRoutes.post("/take-video", validateBody, takeVideo)
 downloaderRoutes.post("/file-information", validateBody, getFileInformation)
-downloaderRoutes.post("/download-video", validateBody, downloadVideo)
 // GET Routes
-downloaderRoutes.get("/download", downloadAudio)
+downloaderRoutes.get("/download", getFileToDownload)
 
 module.exports = downloaderRoutes
