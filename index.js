@@ -11,6 +11,10 @@ app.use(cors())
 app.use(express.json())
 app.use("/", downloaderRoutes)
 
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/src/public/index.html`)
+})
+
 app.listen(port, () => {
   console.log(`Server up on port: ${port}!`)
 })

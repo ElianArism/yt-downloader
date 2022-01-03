@@ -1,0 +1,79 @@
+:root {
+  --bg-color: #e03b3b;
+  --text-color: #f3f2f3;
+  --hover-color: #b90701;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+body, html {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.main-container {
+  align-items: center;
+  display: flex;
+  background-color: var(--bg-color);
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 70px;
+  justify-content: space-between;
+  padding: .3rem;
+}
+
+.author-container .title, 
+.author-container .title i {
+  font-size: 1.6rem;
+}
+
+.author-container .title {
+  display: flex;
+  align-items: center;
+}
+
+.author-container .title i {
+  display: block;
+  margin-left: 5px;
+}
+
+.author-container .copyright {
+  font-size: .9rem;
+}
+
+.author-container .copyright span {
+  font-style: italic;
+}
+
+.social-container {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.social-container a {
+  font-size: 1.5rem;
+  transition: transform 100ms, color 150ms;
+}
+
+.social-container a:hover, .social-container i:hover {
+  color: var(--hover-color);
+  transform: scale(1.2);
+  transition: transform 150ms, color 150ms;
+}
