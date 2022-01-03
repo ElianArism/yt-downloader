@@ -29,6 +29,7 @@ Download any YouTube video in .mp3 or .mp4 format!
   Retrieve the URL of a file, download
   <br/>
   it in the server and convert it into "mp3" format.
+  
   ***
     // body-xample
     {
@@ -38,6 +39,7 @@ Download any YouTube video in .mp3 or .mp4 format!
 - /file-information (HTTP POST)
   <br/>
   Retrieve all the information from a file by url.
+  
   ***
     // body-xample
     {
@@ -52,6 +54,7 @@ Download any YouTube video in .mp3 or .mp4 format!
   <br/>
   /take-audio and /take-file prepare the files to be downloaded
   <br/>and this method allows them to be downloaded.
+  
   ***
   // Headers options
   {
