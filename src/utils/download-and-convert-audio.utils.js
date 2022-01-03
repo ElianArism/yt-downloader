@@ -18,9 +18,6 @@ const downloadAndConvertAudio = (url) => {
       .setFfmpegPath(process.env.FFMPEG)
       .toFormat("mp3")
       .on("error", reject)
-      .on("progress", (progress) => {
-        console.log("Processing: " + progress.targetSize + " KB converted")
-      })
       .on("end", () => {
         resolve(info.videoDetails.title)
       })

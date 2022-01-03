@@ -4,7 +4,17 @@ const ytdl = require("ytdl-core")
 const { request, response } = require("express")
 const { downloadAndConvertAudio } = require("../utils/download-and-convert-audio.utils")
 const { retrieveFileInformation } = require("../utils/retrieve-file-information.utils")
+const { deleteAllFiles } = require("../utils/delete-all-download-files.utils")
 
+/**
+ * Get server status.
+ * @param {request} req - Express.Request
+ * @param {response} res - Express.Response
+ * @returns {response} - boolean
+ */
+const serverStatus = (req = request, res = response) => {
+  return res.send(true)
+}
 /**
  * Retrieve the URL of a file, download
  * to the server and pass it on to the client later.
@@ -59,11 +69,18 @@ const takeAudio = async (req = request, res = response) => {
       data: { fileName, fileExt: ".mp3" },
     })
   } catch (err) {
-    return res.status(500).json({
+    const errBody = {
       status: 500,
-      message: "Download File err.",
+      message:
+        "There is no such ffmpeg.exe, if you are running this project locally, please install it. Read more about dependencies in readme.md.",
       logs: err,
-    })
+    }
+    if (err.code === "ENOENT") {
+      return res.status(500).json(errBody)
+    } else {
+      errBody.message = "Download File err."
+      return res.status(500).json(errBody)
+    }
   }
 }
 /**
@@ -85,7 +102,8 @@ const getFileToDownload = async (req = request, res = response) => {
   if (!fileName || !fileExt) return res.status(400).json(headersErr)
   const filePath = path.join(process.cwd(), "/" + fileName + fileExt)
   return res.download(filePath, (err) => {
-    fs.unlinkSync(filePath)
+    deleteAllFiles("mp3")
+    deleteAllFiles("mp4")
     if (err)
       return res.status(500).json({
         status: 500,
@@ -117,6 +135,7 @@ const getFileInformation = async (req = request, res = response) => {
 module.exports = {
   takeAudio,
   takeVideo,
+  serverStatus,
   getFileToDownload,
   getFileInformation,
 }
