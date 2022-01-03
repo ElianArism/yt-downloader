@@ -16,9 +16,8 @@ Download any YouTube video in .mp3 or .mp4 format!
 - /server (HTTP HEAD)
   Get server status.
 - /take-video (HTTP POST) 
-  <p>
-    Retrieve the URL of a file and download it in the server.
-  </p>
+  <br>
+  Retrieve the URL of a file and download it in the server.
   ***
     // body-xample
     {
@@ -26,7 +25,9 @@ Download any YouTube video in .mp3 or .mp4 format!
     }
   ***
 - /take-audio (HTTP POST)
+  <br/>
   Retrieve the URL of a file, download
+  <br/>
   it in the server and convert it into "mp3" format.
   ***
     // body-xample
@@ -35,6 +36,7 @@ Download any YouTube video in .mp3 or .mp4 format!
     }
   ***
 - /file-information (HTTP POST)
+  <br/>
   Retrieve all the information from a file by url.
   ***
     // body-xample
@@ -43,11 +45,13 @@ Download any YouTube video in .mp3 or .mp4 format!
     }
   ***
 - /download (HTTP GET)
+  <br>
   Retrieve a file's options passed in req.headers
   and returns the file to download.
-  # Important:
+  ### Important:
+  <br/>
   /take-audio and /take-file prepare the files to be downloaded
-  and this method allows them to be downloaded.
+  <br/>and this method allows them to be downloaded.
   ***
   // Headers options
   {
