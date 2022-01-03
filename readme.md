@@ -57,12 +57,12 @@ Download any YouTube video in .mp3 or .mp4 format!
   
   ***
   // Headers options
-  { <br/>
-    headers: {<br/>
-      file_opts: {<br/>
-        fileName: string, // file name <br/>
-        fileExt: string // file extension <br/>
-      } <br/>
-    } <br/>
-  } <br/>
+  {
+    headers: {
+      file_opts: {
+        fileName: string, // file name
+        fileExt: string // file extension
+      } 
+    } 
+  } 
   ***
